@@ -1,0 +1,56 @@
+apiVersion: v1
+entries:
+  edc-kafka-demo:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-10-07T10:25:50.941541347Z"
+    dependencies:
+    - condition: kafka.enabled
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 32.3.7
+    - condition: keycloak.enabled
+      name: keycloak
+      repository: https://charts.bitnami.com/bitnami
+      version: 25.2.0
+    - condition: producer-app.enabled
+      name: producer-app
+      repository: file://../producer-app
+      version: 0.1.0
+    - alias: producer-edc
+      condition: producer-edc.enabled
+      name: tractusx-edc-kafka
+      repository: file://../tractusx-edc-kafka
+      version: 0.1.0
+    - condition: consumer-app.enabled
+      name: consumer-app
+      repository: file://../consumer-app
+      version: 0.1.0
+    - alias: consumer-edc
+      condition: consumer-edc.enabled
+      name: tractusx-edc-kafka
+      repository: file://../tractusx-edc-kafka
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: 5ca130f586756af7236c24c3c1375d5b2c4c3280b4676575a7dcbc132bedad60
+    name: edc-kafka-demo
+    type: application
+    urls:
+    - https://github.com/ds-jkreutzfeld/tractusx-edc-kafka-extension/releases/download/edc-kafka-demo-0.1.0/edc-kafka-demo-0.1.0.tgz
+    version: 0.1.0
+  tractusx-edc-kafka:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-10-07T10:25:51.191936393Z"
+    dependencies:
+    - name: tractusx-connector
+      repository: https://eclipse-tractusx.github.io/charts/dev
+      version: 0.9.0
+    description: A Helm chart for Kubernetes
+    digest: 13595ddc60710c936be85fd664b86d4ace2fc89adaf8068340243837b57bcaa2
+    name: tractusx-edc-kafka
+    type: application
+    urls:
+    - https://github.com/ds-jkreutzfeld/tractusx-edc-kafka-extension/releases/download/tractusx-edc-kafka-0.1.0/tractusx-edc-kafka-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-10-07T10:25:51.191943987Z"
